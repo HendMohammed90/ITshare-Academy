@@ -9,6 +9,7 @@ Joi.objectId = require('joi-objectid')(Joi);
 const express = require('express');
 const app = express();
 
+
 mongoose.connect('mongodb://localhost/vidly')
   .then(() => console.log('Connected to MongoDB...'))
   .catch(err => console.error('Could not connect to MongoDB...'));
