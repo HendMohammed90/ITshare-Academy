@@ -8,6 +8,8 @@ const express = require('express');
 const router = express.Router();
 const Fawn = require("fawn");
 Fawn.init(mongoose);
+require('express-async-errors'); //here we tell the app to use this middelware in every routs
+
 
 router.get('/', async (req, res) => {
   const rentals = await Rental.find().sort('-dateOut');

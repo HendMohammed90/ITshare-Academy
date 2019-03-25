@@ -4,6 +4,8 @@ const {Customer, validate} = require('../models/customer');
 const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
+require('express-async-errors'); //here we tell the app to use this middelware in every routs
+
 
 router.get('/', async (req, res) => {
   const customers = await Customer.find().sort('name');
