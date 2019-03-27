@@ -3,16 +3,16 @@
 const auth = require('../middleware/auth')
 const admin = require('../middleware/admin');
 // const asyncMiddleeware = require('../middleware/async');
-require('express-async-errors'); //here we tell the app to use this middelware in every routs
 const {Genre, validate} = require('../models/genre');
 const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
+require('express-async-errors'); //here we tell the app to use this middelware in every routs we use that choise if our async.js moudule dosn't work or we can choose between them
+//I think i should implement the line of express-async-errors in every route because it dosn't work for me for implimintg it in only index module
 
 
 
-
-router.get('/', async (req, res ,next) => {
+router.get('/', async (req, res ) => {
     const genres = await Genre.find().sort('name');
     res.send(genres);
 });
